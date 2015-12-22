@@ -9,7 +9,6 @@ class Scriptrunner:
         scriptcall = "osascript " + self.script
         process = subprocess.Popen([scriptcall], stdout=subprocess.PIPE, shell=True)
         result = process.stdout.read()
-        print ("result: ", result)
         if (result.decode("utf-8").startswith("to do id")):
             return True
         return False
