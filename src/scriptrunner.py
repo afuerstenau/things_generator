@@ -1,4 +1,5 @@
-import os
+import subprocess
+
 class Scriptrunner:
 
     def __init__(self, script):
@@ -6,5 +7,9 @@ class Scriptrunner:
 
     def run_script(self):
         scriptcall = "osascript " + self.script
-        print("Scriptcall: ", scriptcall)
-        return os.system(scriptcall)
+        process = subprocess.Popen([scriptcall], stdout=subprocess.PIPE, shell=True)
+        result = process.stdout.read()
+        print ("result: ", result)
+        if (result.decode("utf-8").startswith("to do id")):
+            return True
+        return False
