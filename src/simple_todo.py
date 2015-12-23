@@ -7,7 +7,7 @@ class SimpleTodo:
         self.name = name
 
     def get_todo_as_script(self):
-        return "-e 'tell app \"Things\"' -e 'set newToDo to make new to do with properties {name:\""+self.name+"\", tag names:\""+self.get_tags_as_text()+"\"' -e 'end'"
+        return "-e 'tell app \"Things\"' -e 'set newToDo to make new to do with properties {name:\""+self.name+"\", tag names:\""+self.get_tags_as_text()+"\"}' -e 'end'"
 
     def add_tag(self, tag):
         self.tags.append(tag)
